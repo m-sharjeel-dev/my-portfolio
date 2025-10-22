@@ -2,6 +2,7 @@ import axios from 'axios';
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { Resend } from 'resend';
+export const runtime = 'nodejs';
 
 // Function to create transporter
 function getTransporter() {
@@ -51,7 +52,7 @@ const generateEmailTemplate = (name, email, userMessage) => `
 // Helper function to send an email via Resend (if configured) or Nodemailer
 async function sendEmail(payload, message) {
   const { name, email, message: userMessage } = payload;
-  const fromEmail = process.env.FROM_EMAIL || process.env.EMAIL_ADDRESS;
+  const fromEmail = process.env.FROM_EMAIL || process.env.EMAIL_ADDRESS || 'onboarding@resend.dev';
   const resendApiKey = process.env.RESEND_API_KEY;
   
   // If RESEND_API_KEY is available, prefer Resend
@@ -97,6 +98,16 @@ export async function POST(request) {
     const { name, email, message: userMessage } = payload;
     const token = process.env.TELEGRAM_BOT_TOKEN;
     const chat_id = process.env.TELEGRAM_CHAT_ID;
+
+    // Validate mail credentials: require either Resend or Nodemailer creds
+    const hasResend = !!process.env.RESEND_API_KEY;
+    const hasNodemailer = !!(process.env.EMAIL_ADDRESS && process.env.GMAIL_PASSKEY);
+    if (!hasResend && !hasNodemailer) {
+      return NextResponse.json({
+        success: false,
+        message: 'Email service is not configured. Please set RESEND_API_KEY (preferred) or EMAIL_ADDRESS and GMAIL_PASSKEY.',
+      }, { status: 400 });
+    }
 
     const message = `New message from ${name}\n\nEmail: ${email}\n\nMessage:\n\n${userMessage}\n\n`;
 
