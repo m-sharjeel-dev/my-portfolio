@@ -14,7 +14,7 @@ export const educations = [
   {
     id: 3,
     title: "Matriculation - Science",
-    duration: "2019 - 20121",
+    duration: "2019 - 2021",
     institution: "Govt. Higher Secondary School, Khanewal",
   }
 ]
