@@ -36,7 +36,7 @@ function ContactForm() {
     try {
       setIsLoading(true);
       const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_APP_URL}/api/contact`,
+        `/api/contact`,
         userInput
       );
 
@@ -47,7 +47,7 @@ function ContactForm() {
         message: "",
       });
     } catch (error) {
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message || 'Failed to send message. Please try again.');
     } finally {
       setIsLoading(false);
     };

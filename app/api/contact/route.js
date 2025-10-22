@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 
 // Function to create transporter
 function getTransporter() {
@@ -47,25 +48,45 @@ const generateEmailTemplate = (name, email, userMessage) => `
   </div>
 `;
 
-// Helper function to send an email via Nodemailer
+// Helper function to send an email via Resend (if configured) or Nodemailer
 async function sendEmail(payload, message) {
   const { name, email, message: userMessage } = payload;
+  const fromEmail = process.env.FROM_EMAIL || process.env.EMAIL_ADDRESS;
+  const resendApiKey = process.env.RESEND_API_KEY;
   
-  const mailOptions = {
-    from: "Portfolio", 
-    to: process.env.EMAIL_ADDRESS, 
-    subject: `New Message From ${name}`, 
-    text: message, 
-    html: generateEmailTemplate(name, email, userMessage), 
-    replyTo: email, 
-  };
-  
+  // If RESEND_API_KEY is available, prefer Resend
+  if (resendApiKey) {
+    try {
+      const resend = new Resend(resendApiKey);
+      await resend.emails.send({
+        from: `Portfolio <${fromEmail}>`,
+        to: fromEmail,
+        subject: `New Message From ${name}`,
+        text: message,
+        html: generateEmailTemplate(name, email, userMessage),
+        replyTo: email,
+      });
+      return true;
+    } catch (error) {
+      console.error('Resend email error:', error?.message || error);
+      // fall through to Nodemailer as a fallback
+    }
+  }
+
+  // Fallback: Nodemailer (Gmail)
   try {
     const transporter = getTransporter();
-    await transporter.sendMail(mailOptions);
+    await transporter.sendMail({
+      from: `"Portfolio" <${fromEmail}>`,
+      to: fromEmail,
+      subject: `New Message From ${name}`,
+      text: message,
+      html: generateEmailTemplate(name, email, userMessage),
+      replyTo: email,
+    });
     return true;
   } catch (error) {
-    console.error('Error while sending email:', error.message);
+    console.error('Nodemailer email error:', error.message);
     return false;
   }
 };
@@ -77,32 +98,29 @@ export async function POST(request) {
     const token = process.env.TELEGRAM_BOT_TOKEN;
     const chat_id = process.env.TELEGRAM_CHAT_ID;
 
-    // Validate environment variables
-    if (!token || !chat_id) {
-      return NextResponse.json({
-        success: false,
-        message: 'Telegram token or chat ID is missing.',
-      }, { status: 400 });
-    }
-
     const message = `New message from ${name}\n\nEmail: ${email}\n\nMessage:\n\n${userMessage}\n\n`;
 
-    // Send Telegram message
-    const telegramSuccess = await sendTelegramMessage(token, chat_id, message);
+    // Send Telegram message only if both credentials are present
+    let telegramSuccess = true;
+    if (token && chat_id) {
+      telegramSuccess = await sendTelegramMessage(token, chat_id, message);
+    }
 
     // Send email
     const emailSuccess = await sendEmail(payload, message);
 
-    if (telegramSuccess && emailSuccess) {
+    if (emailSuccess) {
       return NextResponse.json({
         success: true,
-        message: 'Message and email sent successfully!',
+        message: telegramSuccess
+          ? 'Message and email sent successfully!'
+          : 'Email sent successfully. Telegram notification was skipped or failed.',
       }, { status: 200 });
     }
 
     return NextResponse.json({
       success: false,
-      message: 'Failed to send message or email.',
+      message: 'Failed to send email.',
     }, { status: 500 });
   } catch (error) {
     console.error('API Error:', error.message);
