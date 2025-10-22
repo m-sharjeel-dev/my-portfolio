@@ -2,17 +2,19 @@ import axios from 'axios';
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
-// Create and configure Nodemailer transporter
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  host: 'smtp.gmail.com',
-  port: 587,
-  secure: false, 
-  auth: {
-    user: process.env.EMAIL_ADDRESS,
-    pass: process.env.GMAIL_PASSKEY, 
-  },
-});
+// Function to create transporter
+function getTransporter() {
+  return nodemailer.createTransport({
+    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false, 
+    auth: {
+      user: process.env.EMAIL_ADDRESS,
+      pass: process.env.GMAIL_PASSKEY, 
+    },
+  });
+}
 
 // Helper function to send a message via Telegram
 async function sendTelegramMessage(token, chat_id, message) {
@@ -59,6 +61,7 @@ async function sendEmail(payload, message) {
   };
   
   try {
+    const transporter = getTransporter();
     await transporter.sendMail(mailOptions);
     return true;
   } catch (error) {
