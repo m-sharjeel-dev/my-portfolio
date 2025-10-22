@@ -10,7 +10,7 @@ export const projectsData = [
     // },
     {
         id: 1,
-        name: 'Insurmart',
+        name: 'Insure Mart',
         description: "Developed a comprehensive insurance platform for Insurmart, offering insurance products for cars, bikes, health, travel, and accidents. Built using Laravel, Vue.js, and Inertia, with a responsive UI leveraging HTML, CSS, Bootstrap, and Tailwind CSS. Successfully integrated third-party insurer APIs and PayFast for seamless payment processing.",
         tools: ['Laravel', 'Vue.js', 'Inertia', 'HTML', 'CSS', 'Bootstrap', 'Tailwind CSS', 'PayFast API', 'MySQL'],
         role: 'Full Stack Developer',
