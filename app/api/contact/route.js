@@ -99,14 +99,16 @@ export async function POST(request) {
     const token = process.env.TELEGRAM_BOT_TOKEN;
     const chat_id = process.env.TELEGRAM_CHAT_ID;
 
-    // Validate mail credentials: require either Resend or Nodemailer creds
+    // Detect mail credentials: either Resend or Nodemailer creds
     const hasResend = !!process.env.RESEND_API_KEY;
     const hasNodemailer = !!(process.env.EMAIL_ADDRESS && process.env.GMAIL_PASSKEY);
+
+    // Zero-config mode: if nothing is configured, accept the message without sending
     if (!hasResend && !hasNodemailer) {
       return NextResponse.json({
-        success: false,
-        // message: 'Email service is not configured. Please set RESEND_API_KEY (preferred) or EMAIL_ADDRESS and GMAIL_PASSKEY.',
-      }, { status: 400 });
+        success: true,
+        message: 'Message received. Email service not configured yet.'
+      }, { status: 200 });
     }
 
     const message = `New message from ${name}\n\nEmail: ${email}\n\nMessage:\n\n${userMessage}\n\n`;

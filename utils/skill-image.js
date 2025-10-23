@@ -33,6 +33,9 @@ import illustrator from '../app/assets/svg/skills/illustrator.svg';
 import ionic from '../app/assets/svg/skills/ionic.svg';
 import java from '../app/assets/svg/skills/java.svg';
 import javascript from '../app/assets/svg/skills/javascript.svg';
+import laravel from '../app/assets/svg/skills/laravel.svg';
+import codeigniter from '../app/assets/svg/skills/codeigniter.svg';
+import livewire from '../app/assets/svg/skills/livewire.svg';
 import julia from '../app/assets/svg/skills/julia.svg';
 import kotlin from '../app/assets/svg/skills/kotlin.svg';
 import lightroom from '../app/assets/svg/skills/lightroom.svg';
@@ -162,6 +165,12 @@ export const skillsImage = (skill) => {
       return matlab;
     case 'php':
       return php;
+    case 'laravel':
+      return laravel;
+    case 'codeigniter':
+      return codeigniter;
+    case 'livewire':
+      return livewire;
     case 'prisma':
       return prisma;
     case 'python':
