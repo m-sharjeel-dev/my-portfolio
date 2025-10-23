@@ -14,6 +14,7 @@ function ContactForm() {
     email: "",
     message: "",
   });
+  
 
   const checkRequired = () => {
     if (userInput.email && userInput.message && userInput.name) {
