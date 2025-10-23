@@ -105,7 +105,7 @@ export async function POST(request) {
     if (!hasResend && !hasNodemailer) {
       return NextResponse.json({
         success: false,
-        message: 'Email service is not configured. Please set RESEND_API_KEY (preferred) or EMAIL_ADDRESS and GMAIL_PASSKEY.',
+        // message: 'Email service is not configured. Please set RESEND_API_KEY (preferred) or EMAIL_ADDRESS and GMAIL_PASSKEY.',
       }, { status: 400 });
     }
 
