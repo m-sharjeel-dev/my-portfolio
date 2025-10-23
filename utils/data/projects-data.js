@@ -25,15 +25,6 @@ export const projectsData = [
         code: '',
         demo: 'https://arealimoservice.com/',
     },
-    {
-        id: 3,
-        name: 'Spark Clinic',
-        description: "Contributed to the development of Spark Clinic's website, a healthcare platform providing various medical services. The project was built using CodeIgniter, showcasing expertise in PHP framework.",
-        tools: ['CodeIgniter', 'PHP', 'HTML', 'CSS', 'Bootstrap', 'JavaScript', 'jQuery', 'MySQL'],
-        role: 'PHP Developer',
-        code: '',
-        demo: 'https://spark.clinic/',
-    },
     // {
     //     id: 2,
     //     name: 'Travel Agency App',
