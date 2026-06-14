@@ -13,6 +13,9 @@ export const metadata = {
   title: "Portfolio of Sharjeel Khalid - Software Developer",
   description:
     "This is the portfolio of Sharjeel Khalid. I am a full stack developer and a self taught developer. I love to learn new things and I am always open to collaborating with others. I am a quick learner and I am always looking for new challenges.",
+  verification: {
+    google: "Ue2CN8J0TNgRRomgXVlvkz7SIktl3L9OIfYuhKMKFuo",
+  },
 };
 
 export default function RootLayout({ children }) {
