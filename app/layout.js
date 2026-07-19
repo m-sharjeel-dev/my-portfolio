@@ -11,9 +11,65 @@ import "./css/globals.scss";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Portfolio of Sharjeel Khalid - Software Developer",
+  metadataBase: new URL('https://m-sharjeel-dev.vercel.app'),
+  title: {
+    default: "Sharjeel Khalid | Full Stack Software Developer – PHP, React & Next.js",
+    template: "%s | Sharjeel Khalid"
+  },
   description:
-    "This is the portfolio of Sharjeel Khalid. I am a full stack developer and a self taught developer. I love to learn new things and I am always open to collaborating with others. I am a quick learner and I am always looking for new challenges.",
+    "Sharjeel Khalid is a Full Stack Software Developer specializing in PHP, React, Next.js, and JavaScript. Explore his portfolio of projects, skills, and published technical articles.",
+  keywords: [
+    "Sharjeel Khalid",
+    "Full Stack Developer",
+    "Software Developer Lahore",
+    "PHP Developer",
+    "React Developer",
+    "Next.js Developer",
+    "JavaScript Developer",
+    "Web Developer Pakistan",
+    "Portfolio",
+    "Freelance Developer"
+  ],
+  authors: [{ name: "Sharjeel Khalid", url: "https://m-sharjeel-dev.vercel.app" }],
+  creator: "Sharjeel Khalid",
+  publisher: "Sharjeel Khalid",
+  alternates: {
+    canonical: "/"
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://m-sharjeel-dev.vercel.app",
+    siteName: "Sharjeel Khalid – Software Developer Portfolio",
+    title: "Sharjeel Khalid | Full Stack Software Developer",
+    description: "Explore the portfolio of Sharjeel Khalid – a Full Stack Developer skilled in PHP, React, Next.js and modern web technologies based in Lahore, Pakistan.",
+    images: [
+      {
+        url: "/profile-4.png",
+        width: 1200,
+        height: 630,
+        alt: "Sharjeel Khalid – Full Stack Software Developer"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sharjeel Khalid | Full Stack Software Developer",
+    description: "Explore the portfolio of Sharjeel Khalid – a Full Stack Developer skilled in PHP, React, Next.js and modern web technologies.",
+    images: ["/profile-4.png"],
+    creator: "@m-sharjeel-dev"
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1
+    }
+  },
   verification: {
     google: "Ue2CN8J0TNgRRomgXVlvkz7SIktl3L9OIfYuhKMKFuo",
   },

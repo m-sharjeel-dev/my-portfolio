@@ -21,6 +21,11 @@ module.exports = {
         hostname: 'media2.dev.to',
         pathname: '**',
       },
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+        pathname: '**',
+      },
     ],
   },
   serverExternalPackages: ['nodemailer'],
