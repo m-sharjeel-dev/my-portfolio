@@ -10,7 +10,7 @@ function BlogCard({ blog }) {
   return (
     <div className="border border-[#1d293a] hover:border-[#464c6a] transition-all duration-500 bg-[#1b203e] rounded-lg relative group"
     >
-      <div className="h-44 lg:h-52 w-auto cursor-pointer overflow-hidden rounded-t-lg">
+      <div className="h-28 sm:h-44 lg:h-52 w-auto cursor-pointer overflow-hidden rounded-t-lg">
         <Image
           src={blog?.cover_image}
           height={1080}
