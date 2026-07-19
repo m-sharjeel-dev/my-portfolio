@@ -15,25 +15,13 @@ function BlogCard({ blog }) {
           src={blog?.cover_image}
           height={1080}
           width={1920}
-          alt=""
+          alt={`Cover image for: ${blog?.title}`}
           className='h-full w-full group-hover:scale-110 transition-all duration-300'
         />
       </div>
       <div className="p-2 sm:p-3 flex flex-col">
         <div className="flex justify-between items-center text-[#16f2b3] text-sm">
           <p>{timeConverter(blog.published_at)}</p>
-          <div className="flex items-center gap-3">
-            <p className="flex items-center gap-1">
-              <BsHeartFill />
-              <span>{blog.public_reactions_count}</span>
-            </p>
-            {blog.comments_count > 0 &&
-              <p className="flex items-center gap-1">
-                <FaCommentAlt />
-                <span>{blog.comments_count}</span>
-              </p>
-            }
-          </div>
         </div>
         <Link href={`/blog/${blog?.slug}`}>
           <p className='my-2 lg:my-3 cursor-pointer text-lg text-white sm:text-xl font-medium hover:text-violet-500'>
