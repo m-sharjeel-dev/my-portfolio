@@ -55,13 +55,13 @@ export async function generateMetadata({ params }) {
       url,
       type: "article",
       authors: ["Sharjeel Khalid"],
-      images: [{ url: "/profile-4.png", width: 1200, height: 630, alt: title }]
+      images: [{ url: "/sharjeel.png", width: 1200, height: 630, alt: title }]
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: ["/profile-4.png"]
+      images: ["/sharjeel.png"]
     }
   };
 }
@@ -251,7 +251,7 @@ export default async function BlogDetails({ params }) {
     "@type": "Article",
     "headline": blog.title,
     "description": blogMeta[slug]?.description || blog.description || "",
-    "image": blog.cover_image || "/profile-4.png",
+    "image": blog.cover_image || "/sharjeel.png",
     "author": {
       "@type": "Person",
       "name": "Sharjeel Khalid",

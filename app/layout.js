@@ -45,7 +45,7 @@ export const metadata = {
     description: "Explore the portfolio of Sharjeel Khalid – a Full Stack Developer skilled in PHP, React, Next.js and modern web technologies based in Lahore, Pakistan.",
     images: [
       {
-        url: "/profile-4.png",
+        url: "/sharjeel.png",
         width: 1200,
         height: 630,
         alt: "Sharjeel Khalid – Full Stack Software Developer"
@@ -56,7 +56,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Sharjeel Khalid | Full Stack Software Developer",
     description: "Explore the portfolio of Sharjeel Khalid – a Full Stack Developer skilled in PHP, React, Next.js and modern web technologies.",
-    images: ["/profile-4.png"],
+    images: ["/sharjeel.png"],
     creator: "@m-sharjeel-dev"
   },
   robots: {
