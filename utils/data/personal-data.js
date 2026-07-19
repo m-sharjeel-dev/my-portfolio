@@ -9,10 +9,10 @@ export const personalData = {
   address: 'Lahore, Pakistan',
   github: 'https://github.com/m-sharjeel-dev',
   facebook: 'https://www.facebook.com/m-sharjeel-429850361',
-  linkedIn: 'https://www.linkedin.com/in/m-sharjeel-429850361',
+  linkedIn: 'https://www.linkedin.com/in/m-sharjeel-dev/',
   twitter: 'https://twitter.com/m-sharjeel-429850361',
   stackOverflow: 'https://stackoverflow.com/users/16840768/m-sharjeel-429850361',
   leetcode: "https://leetcode.com/m-sharjeel-429850361/",
   devUsername: "sharjeel.dev",
-  resume: "https://drive.google.com/file/d/1D8DeRnWVYRo8m3yaCtDNGtJ2pSEnsVyt/view?usp=drive_link"
+  resume: "https://drive.google.com/file/d/1KhvTKxfraLxYvBNz-Mx_FuV8BqX6shxz/view?usp=sharing"
 }
