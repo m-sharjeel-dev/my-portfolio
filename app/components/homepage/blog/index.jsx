@@ -25,7 +25,7 @@ function Blog({ blogs }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 lg:gap-8 xl:gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 lg:gap-8 xl:gap-10">
         {
           blogs.slice(0, 3).map((blog, i) => (
             blog?.cover_image &&
