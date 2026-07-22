@@ -45,14 +45,19 @@ async function sendEmail(payload, message) {
   if (resendApiKey) {
     try {
       const resend = new Resend(resendApiKey);
-      await resend.emails.send({
-        from: `Portfolio <${fromEmail}>`,
+      const { data, error } = await resend.emails.send({
+        from: 'Portfolio <onboarding@resend.dev>',
         to: fromEmail,
         subject: `New Message From ${name}`,
         text: message,
         html: generateEmailTemplate(name, email, userMessage),
         replyTo: email,
       });
+
+      if (error) {
+        throw new Error(error.message || 'Resend failed');
+      }
+
       return true;
     } catch (error) {
       console.error('Resend email error:', error?.message || error);
