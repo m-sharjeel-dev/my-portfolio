@@ -79,7 +79,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ToastContainer />
+        <ToastContainer style={{ zIndex: 100000 }} />
         <header className="sticky top-0 z-[9999] w-full">
           <div className="mx-auto px-6 sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem]">
             <Navbar />
