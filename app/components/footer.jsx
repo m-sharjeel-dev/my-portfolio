@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { personalData } from '@/utils/data/personal-data';
 import { FaGithub, FaLinkedinIn, FaTwitter, FaStackOverflow } from 'react-icons/fa';
+import { SiFiverr } from 'react-icons/si';
 
 const navLinks = [
   { label: "About", href: "/#about" },
@@ -17,6 +18,7 @@ const socialLinks = [
   { icon: FaLinkedinIn, href: personalData.linkedIn, label: "LinkedIn" },
   { icon: FaTwitter, href: personalData.twitter, label: "Twitter" },
   { icon: FaStackOverflow, href: personalData.stackOverflow, label: "Stack Overflow" },
+  { icon: SiFiverr, href: personalData.fiverr, label: "Fiverr" },
 ];
 
 function Footer() {

@@ -7,7 +7,7 @@ import { BsGithub, BsLinkedin, BsWhatsapp } from "react-icons/bs";
 import { FaFacebook, FaTwitterSquare } from "react-icons/fa";
 import { MdDownload } from "react-icons/md";
 import { RiContactsFill } from "react-icons/ri";
-import { SiLeetcode } from "react-icons/si";
+import { SiLeetcode, SiFiverr } from "react-icons/si";
 
 function HeroSection() {
   return (
@@ -52,6 +52,13 @@ function HeroSection() {
               className="transition-all text-pink-500 hover:scale-125 duration-300"
             >
               <BsWhatsapp size={30} />
+            </Link>
+            <Link
+              href={personalData.fiverr}
+              target='_blank'
+              className="transition-all text-pink-500 hover:scale-125 duration-300"
+            >
+              <SiFiverr size={30} />
             </Link>
             {/* <Link
               href={personalData.facebook}

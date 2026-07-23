@@ -7,5 +7,6 @@ export const contactsData = {
     linkedIn: 'https://www.linkedin.com/in/m-sharjeel-429850361',
     twitter: 'https://www.linkedin.com/in/m-sharjeel-429850361',
     stackOverflow: 'https://www.linkedin.com/in/m-sharjeel-429850361',
-    devUsername: "sharjeel-dev"
+    devUsername: "sharjeel-dev",
+    fiverr: "https://www.fiverr.com/s/jjAv0Wo"
 }

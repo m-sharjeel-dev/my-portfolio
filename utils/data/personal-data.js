@@ -14,5 +14,6 @@ export const personalData = {
   stackOverflow: 'https://stackoverflow.com/users/16840768/m-sharjeel-429850361',
   leetcode: "https://leetcode.com/m-sharjeel-429850361/",
   devUsername: "sharjeel.dev",
-  resume: "https://drive.google.com/file/d/1KhvTKxfraLxYvBNz-Mx_FuV8BqX6shxz/view?usp=sharing"
+  resume: "https://drive.google.com/file/d/1KhvTKxfraLxYvBNz-Mx_FuV8BqX6shxz/view?usp=sharing",
+  fiverr: "https://www.fiverr.com/s/jjAv0Wo"
 }
